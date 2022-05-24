@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="cls-md-12 text-xs-center w-100 pt-3">
+            <h5 class="logoText"> Green Koncepts </h5>
+        </div>
+        
+    </div>
+</div>
+<div class="container d-flex justify-content-center align-items-center h-100 ">
+   
+
+    <div class="gk-login-cont xy-5 relative">
+        <app-loader *ngIf="prloaderRun"></app-loader>
+
+        <!-- <div class="alert alert-success" role="alert">
+            A simple success alert—check it out!
+        </div>
+        <div class="alert alert-danger" role="alert">
+        A simple danger alert—check it out!
+        </div> -->
+          
+        <h5>User Login</h5>
+
+        <form  #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="mt-4">
+            <div class="form-froup">
+                <label for="username"> Username </label>
+                <input type="text" class="input-control"  [(ngModel)]="username"   id="username" name="username" />
+            </div> 
+            <div class="form-froup mt-4">
+                <label for="password"> Password </label>
+                <input type="text"  class="input-control"  [(ngModel)]="password"  id="password" name="password"  />
+            </div>
+            <div class="form-froup mt-4 text-center">
+               <input class="btn-sm w-100 btn btnBG" [disabled]="username=='' || password=='' " value="Submit" type="submit" />  
+            </div>
+        </form>
+        
+
+    </div>
+    
+</div>

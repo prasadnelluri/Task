@@ -1,0 +1,50 @@
+$assetPath :"./assets"
+$vh100:100%
+.gk-wrapper
+    height: 100vh
+    background: url(#{$assetPath}/bg.jpg) no-repeat
+    background-position: center
+    background-size: cover
+    overflow-y: hidden
+
+    .h-100
+        height: $vh100
+
+
+.logoText
+    color:#fff
+
+.relative
+    position: relative
+
+.gk-login-cont
+    width: 300px
+    min-height: 300px
+    border-radius: 4px
+    background-color: rgba(225, 225, 225, 0.9)
+    padding:40px 20px
+
+    .input-control
+        border:none
+        border:0
+        border-bottom: 1px solid #696969
+        display: block
+        width: 100%
+        background-color: transparent
+        
+        &:focus
+            overflow: unset
+            outline: none
+            outline:0
+    
+    .btnBG
+        background-color: #67d2c0
+        color: #fff
+    
+    
+
+$layout-breakpoint-small: 767px
+.text-xs-center
+    @media (max-width: $layout-breakpoint-small) 
+        text-align:center
+  

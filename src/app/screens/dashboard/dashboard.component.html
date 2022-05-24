@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 text-xs-center w-100 pt-3">
+            <h5 class="logoText"> Green Koncepts </h5>
+        </div>
+        <div class="col-md-6 text-right w-100 pt-3">
+            <app-time class="logoText" >  </app-time>
+            <span (click)="logOut()"  class="logoText"> Logout </span>
+        </div>
+        
+    </div>
+</div>
+
+<div class="container bgWight"> 
+
+    <div class="row mt-5">
+        <div class="col-md-6"></div>
+        <div class="col-md-6 form-group text-tight">
+                <input type="search" class="form-control w-50 float-right mt-2" placeholder="Search Product Details Here.." name="searchKey" id="searchKey"   (keyup)="doFilter($event)"  (search)="onSearchCustomer($event)" >
+        </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>OrderDate</th>
+          <th>Order Detail </th>
+          <th>Order Amount </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="Products.length<=0;">
+            <td> <span> *No data </span></td>
+        </tr>
+
+        <tr *ngFor="let product of Products; let i = index;">
+          <td> <span> {{product.customer.customerName}} </span></td>
+          <td> <span> {{product.orderDate | date }} </span> </td>
+          <td> <span> {{product.orderDetail}} </span> </td>
+          <td> <span> {{product.orderAmount | currency:'USD':'symbol' }} </span> </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
