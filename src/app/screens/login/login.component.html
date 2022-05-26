@@ -8,34 +8,26 @@
 </div>
 <div class="container d-flex justify-content-center align-items-center h-100 ">
    
-
     <div class="gk-login-cont xy-5 relative">
+
         <app-loader *ngIf="prloaderRun"></app-loader>
 
-        <!-- <div class="alert alert-success" role="alert">
-            A simple success alert—check it out!
-        </div>
-        <div class="alert alert-danger" role="alert">
-        A simple danger alert—check it out!
-        </div> -->
-          
         <h5>User Login</h5>
 
-        <form  #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="mt-4">
+        <form  novalidate  [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mt-4">
             <div class="form-froup">
                 <label for="username"> Username </label>
-                <input type="text" class="input-control"  [(ngModel)]="username"   id="username" name="username" />
-            </div> 
+                <input type="text" class="input-control"  id="username" name="username" formControlName="username" required/>
+            </div>
             <div class="form-froup mt-4">
                 <label for="password"> Password </label>
-                <input type="text"  class="input-control"  [(ngModel)]="password"  id="password" name="password"  />
+                <input type="text"  class="input-control"  id="password" name="password" formControlName="password" required/>
             </div>
             <div class="form-froup mt-4 text-center">
-               <input class="btn-sm w-100 btn btnBG" [disabled]="username=='' || password=='' " value="Submit" type="submit" />  
+               <button class="btn-sm w-100 btn btnBG" [disabled]="!loginForm.valid" type="submit"> Submit </button>
             </div>
         </form>
         
-
     </div>
     
 </div>
