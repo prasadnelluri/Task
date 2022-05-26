@@ -16,7 +16,11 @@
     <div class="row mt-5">
         <div class="col-md-6"></div>
         <div class="col-md-6 form-group text-tight">
-                <input type="search" class="form-control w-50 float-right mt-2" placeholder="Search Product Details Here.." name="searchKey" id="searchKey"   (keyup)="doFilter($event)"  (search)="onSearchCustomer($event)" >
+                <input type="text" 
+                       class="form-control w-50 float-right mt-2" 
+                       placeholder="Search Product Details Here.." 
+                       name="searchTerm" 
+                       id="searchTerm" [(ngModel)]="searchTerm"  >
         </div>
     </div>
     <table class="table">
@@ -33,7 +37,7 @@
             <td> <span> *No data </span></td>
         </tr>
 
-        <tr *ngFor="let product of Products; let i = index;">
+        <tr *ngFor="let product of Products | filterPipe: searchTerm: 'orderDetail'">
           <td> <span> {{product.customer.customerName}} </span></td>
           <td> <span> {{product.orderDate | date }} </span> </td>
           <td> <span> {{product.orderDetail}} </span> </td>
