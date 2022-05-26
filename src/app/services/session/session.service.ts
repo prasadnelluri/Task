@@ -22,7 +22,6 @@ export class SessionService {
   }
   
   public storeAuthToken(data: any) {
-    console.log(data);
     this.storage.setItem('USER_TOKEN', data);
   }
   public getTokenDetails() {
